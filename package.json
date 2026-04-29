@@ -1,21 +1,20 @@
 {
   "name": "pino-cloudwatch",
-  "version": "0.7.0",
+  "version": "6.0.0",
   "description": "CloudWatch Logs transport for pino",
-  "main": "index.js",
+  "main": "dist/index.js",
   "bin": {
-    "pino-cloudwatch": "bin/pino-cloudwatch.js"
+    "pino-cloudwatch": "dist/bin/pino-cloudwatch.js"
   },
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "mocha test/specs/*",
-    "lint": "eslint ."
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src test --ext .ts",
+    "prepublish": "npm run build"
   },
-  "keywords": [
-    "pino",
-    "cloudwatch",
-    "logs",
-    "logger"
-  ],
+  "keywords": ["pino", "cloudwatch", "logs", "logger"],
   "author": "David Howell (david@dynamicmethods.com.au)",
   "license": "MIT",
   "bugs": {
@@ -23,19 +22,20 @@
   },
   "homepage": "https://github.com/dbhowell/pino-cloudwatch#readme",
   "dependencies": {
-    "async": "^3.2.0",
-    "aws-sdk": "^2.668.0",
+    "@aws-sdk/client-cloudwatch-logs": "^3.1038.0",
     "chunky-stream": "^0.3.0",
-    "pump": "^1.0.2",
-    "readable-stream": "^2.3.3",
-    "split2": "^2.1.1",
-    "yargs": "^13.3.0"
+    "split2": "^4.0.0",
+    "yargs": "^17.0.0"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^6.8.0",
-    "mocha": "^6.2.2",
-    "mock-require": "^2.0.2",
-    "pino": "^4.7.2"
+    "@types/node": "^25.6.0",
+    "@types/split2": "^4.2.3",
+    "@types/yargs": "^17.0.35",
+    "@typescript-eslint/eslint-plugin": "^8.59.1",
+    "@typescript-eslint/parser": "^8.59.1",
+    "eslint": "^9.0.0",
+    "pino": "^10.3.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.5"
   }
 }
