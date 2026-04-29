@@ -1,5 +1,5 @@
 {
-  "name": "pino-cloudwatch",
+  "name": "@Milivitoria/pino-cloudwatch",
   "version": "6.0.0",
   "description": "CloudWatch Logs transport for pino",
   "main": "dist/index.js",
@@ -21,6 +21,9 @@
     "url": "https://github.com/dbhowell/pino-cloudwatch/issues"
   },
   "homepage": "https://github.com/dbhowell/pino-cloudwatch#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
     "@aws-sdk/client-cloudwatch-logs": "^3.1038.0",
     "chunky-stream": "^0.3.0",
