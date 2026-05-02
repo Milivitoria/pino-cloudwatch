@@ -1,7 +1,7 @@
 {
-  "name": "@Milivitoria/pino-cloudwatch",
-  "version": "6.0.0",
-  "description": "CloudWatch Logs transport for pino",
+  "name": "@Milivitoria/nestjs-pino-logger",
+  "version": "7.0.0",
+  "description": "NestJS logger module with pluggable transporters (CloudWatch, DynamoDB, Elasticsearch, MongoDB, PostgreSQL)",
   "main": "dist/index.js",
   "bin": {
     "pino-cloudwatch": "dist/bin/pino-cloudwatch.js"
@@ -14,30 +14,53 @@
     "lint": "eslint src test --ext .ts",
     "prepublish": "npm run build"
   },
-  "keywords": ["pino", "cloudwatch", "logs", "logger"],
+  "keywords": ["pino", "nestjs", "cloudwatch", "dynamodb", "elasticsearch", "mongodb", "postgresql", "logs", "logger", "transporter"],
   "author": "David Howell (david@dynamicmethods.com.au)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dbhowell/pino-cloudwatch/issues"
+    "url": "https://github.com/Milivitoria/pino-cloudwatch/issues"
   },
-  "homepage": "https://github.com/dbhowell/pino-cloudwatch#readme",
+  "homepage": "https://github.com/Milivitoria/pino-cloudwatch#readme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "@aws-sdk/client-cloudwatch-logs": "^3.1038.0",
+    "@nestjs/common": "^11.1.19",
+    "@nestjs/core": "^11.1.19",
     "chunky-stream": "^0.3.0",
+    "pino": "^10.3.1",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
     "split2": "^4.0.0",
     "yargs": "^17.0.0"
   },
+  "peerDependencies": {
+    "@aws-sdk/lib-dynamodb": "^3.0.0",
+    "@elastic/elasticsearch": "^8.0.0 || ^9.0.0",
+    "mongodb": "^6.0.0 || ^7.0.0",
+    "pg": "^8.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@aws-sdk/lib-dynamodb": { "optional": true },
+    "@elastic/elasticsearch": { "optional": true },
+    "mongodb": { "optional": true },
+    "pg": { "optional": true }
+  },
   "devDependencies": {
+    "@aws-sdk/lib-dynamodb": "^3.1041.0",
+    "@elastic/elasticsearch": "^9.3.4",
+    "@nestjs/testing": "^11.1.19",
+    "@aws-sdk/client-dynamodb": "^3.1041.0",
     "@types/node": "^25.6.0",
+    "@types/pg": "^8.20.0",
     "@types/split2": "^4.2.3",
     "@types/yargs": "^17.0.35",
     "@typescript-eslint/eslint-plugin": "^8.59.1",
     "@typescript-eslint/parser": "^8.59.1",
     "eslint": "^9.0.0",
-    "pino": "^10.3.1",
+    "mongodb": "^7.2.0",
+    "pg": "^8.20.0",
     "typescript": "^6.0.3",
     "vitest": "^4.1.5"
   }
