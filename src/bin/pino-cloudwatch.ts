@@ -2,7 +2,7 @@
 import { pipeline } from 'stream';
 import split from 'split2';
 import yargs from 'yargs';
-import pinoCloudWatch from '../index';
+import { pinoCloudWatch } from '../legacy';
 
 const argv = yargs(process.argv.slice(2))
   .usage('Sends pino logs to AWS CloudWatch Logs.\nUsage: node index.js | pino-cloudwatch [options]')

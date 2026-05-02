@@ -18,21 +18,21 @@ vi.mock('@aws-sdk/client-cloudwatch-logs', () => {
   };
 });
 
-describe('pino-cloudwatch', () => {
+describe('pino-cloudwatch (legacy)', () => {
   it('should send logs to CloudWatch Logs', async () => {
-    const { default: pinoCloudWatch } = await import('../../src/index');
+    const { pinoCloudWatch } = await import('../../src/index');
     const inStream = createReadStream(resolve(__dirname, '../mocks/logs.txt'));
     await pipeline(inStream, split(), pinoCloudWatch({ group: 'test' }));
   });
 
   it('should not send logs to CloudWatch Logs for empty log', async () => {
-    const { default: pinoCloudWatch } = await import('../../src/index');
+    const { pinoCloudWatch } = await import('../../src/index');
     const inStream = createReadStream(resolve(__dirname, '../mocks/log_empty.txt'));
     await pipeline(inStream, split(), pinoCloudWatch({ group: 'test' }));
   });
 
   it('should emit a flushed event', async () => {
-    const { default: pinoCloudWatch } = await import('../../src/index');
+    const { pinoCloudWatch } = await import('../../src/index');
     const inStream = createReadStream(resolve(__dirname, '../mocks/log_single.txt'));
     const pinoCloudwatchStream = pinoCloudWatch({ group: 'test' });
 
